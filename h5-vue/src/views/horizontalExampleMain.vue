@@ -1,18 +1,32 @@
 
 
 <template>
-  <section v-horizontal-screen>
+  <section v-horizontal-screen style="position: relative;">
     <swiper :modules="modules" class="mySwiper">
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG1})` }"><img class="img-btn" :src="Icon1" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG2})` }"><img class="img-btn" :src="Icon2" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG3})` }"><img class="img-btn" :src="Icon3" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG4})` }"><img class="img-btn" :src="Icon4" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG5})` }"><img class="img-btn" :src="Icon5" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG6})` }"><img class="img-btn" :src="Icon6" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG7})` }"><img class="img-btn" :src="Icon7" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG8})` }"><img class="img-btn" :src="Icon8" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG9})` }"><img class="img-btn" :src="Icon9" /></div></swiper-slide>
+    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG1})` }"><img @click="openModal" class="img-btn" :src="Icon1" /></div></swiper-slide>
+    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG2})` }"><img @click="openModal" class="img-btn" :src="Icon2" /></div></swiper-slide>
+    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG3})` }"><img @click="openModal" class="img-btn" :src="Icon3" /></div></swiper-slide>
+    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG4})` }"><img @click="openModal" class="img-btn" :src="Icon4" /></div></swiper-slide>
+    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG5})` }"><img @click="openModal" class="img-btn" :src="Icon5" /></div></swiper-slide>
+    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG6})` }"><img @click="openModal" class="img-btn" :src="Icon6" /></div></swiper-slide>
+    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG7})` }"><img @click="openModal" class="img-btn" :src="Icon7" /></div></swiper-slide>
+    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG8})` }"><img @click="openModal" class="img-btn" :src="Icon8" /></div></swiper-slide>
+    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG9})` }"><img @click="openModal" class="img-btn" :src="Icon9" /></div></swiper-slide>
   </swiper>
+  <div class="modal" v-if="showModal">
+    <!-- <div class="close">&times;</div> -->
+    <div class="close" @click="closeModal">+</div>
+    <div class="title">线路概况</div>
+    <div class="section">西宁到鸟岛的车票价格是27.5元，支持支付宝，但是买 鸟岛到西宁 是不能用电子支付的，所以一定要提前准备好这一段车票的现金
+
+建议同时顺便买鸟岛到西宁的回程票，因为鸟岛站是无人车站，没有候车厅和售票点，如果你忘记购买了鸟岛到西宁的车票
+
+那么你就要上车补票，补票不需要手续费</div>
+    <div class="buttons">
+      <img :src="L2"/>
+      <img :src="N2"/>
+    </div>
+  </div>
   </section>
  
 </template>
@@ -40,6 +54,8 @@ import Icon6 from '../assets/icon06.png';
 import Icon7 from '../assets/icon07.png';
 import Icon8 from '../assets/icon08.png';
 import Icon9 from '../assets/icon09.png';
+import L2 from '../assets/l2.png';
+import N2 from '../assets/n2.png';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -55,6 +71,17 @@ const pagination = ref({
           },
         });
 const modules =  [Pagination];
+
+const showModal = ref(false);
+const openModal = () => {
+  showModal.value = true;
+}
+
+const closeModal = () => {
+  showModal.value = false;
+};
+
+
 
 </script>
 
@@ -115,6 +142,70 @@ const modules =  [Pagination];
   top: 50%;
   transform: translateY(-50%);
   left: 90px;
+}
+
+.modal {
+  position: absolute;
+    top: 50%;
+    /* transform: translate(10px, 10px); */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    width: 70%;
+    /* height: 500px; */
+    background-color: #CFA265;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+
+.close {
+  border: 2px solid white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    align-self: flex-end;
+    margin-right: 15px;
+    margin-top: 15px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    color: white;
+    /* font-weight: bolder; */
+    font-size: 34px;
+    text-align: center;
+    line-height: 19px;
+    vertical-align: middle;
+    transform: rotate(45deg);
+}
+
+.title {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.section {
+  flex: 1;
+  font-size: 12px;
+  text-align: left;
+  text-indent: 2em;
+  line-height: 20px;
+  padding: 0px 20px;
+}
+
+.buttons {
+  display: flex;
+    /* align-items: center; */
+    /* align-content: center; */
+    justify-content: space-around;
+    padding-bottom: 15px;
+}
+
+.buttons img {
+  width: 120px;
+  height: auto;
 }
 
 </style>
