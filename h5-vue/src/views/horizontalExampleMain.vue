@@ -2,33 +2,59 @@
 
 <template>
   <section v-horizontal-screen style="position: relative;">
-    <swiper :modules="modules" class="mySwiper">
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG1})` }"><img @click="openModal" class="img-btn" :src="Icon1" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG2})` }"><img @click="openModal" class="img-btn" :src="Icon2" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG3})` }"><img @click="openModal" class="img-btn" :src="Icon3" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG4})` }"><img @click="openModal" class="img-btn" :src="Icon4" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG5})` }"><img @click="openModal" class="img-btn" :src="Icon5" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG6})` }"><img @click="openModal" class="img-btn" :src="Icon6" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG7})` }"><img @click="openModal" class="img-btn" :src="Icon7" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG8})` }"><img @click="openModal" class="img-btn" :src="Icon8" /></div></swiper-slide>
-    <swiper-slide><div class="box" :style="{ backgroundImage: `url(${BG9})` }"><img @click="openModal" class="img-btn" :src="Icon9" /></div></swiper-slide>
-  </swiper>
-  <div class="modal" v-if="showModal">
-    <!-- <div class="close">&times;</div> -->
-    <div class="close" @click="closeModal">+</div>
-    <div class="title">线路概况</div>
-    <div class="section">西宁到鸟岛的车票价格是27.5元，支持支付宝，但是买 鸟岛到西宁 是不能用电子支付的，所以一定要提前准备好这一段车票的现金
+    <swiper :modules="modules" class="mySwiper" ref="refSwiper" @swiper="onSwiper">
+      <swiper-slide>
+        <div class="box" :style="{ backgroundImage: `url(${BG1})` }"><img @click="openModal" class="img-btn"
+            :src="Icon1" /></div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box" :style="{ backgroundImage: `url(${BG2})` }"><img @click="openModal" class="img-btn"
+            :src="Icon2" /></div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box" :style="{ backgroundImage: `url(${BG3})` }"><img @click="openModal" class="img-btn"
+            :src="Icon3" /></div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box" :style="{ backgroundImage: `url(${BG4})` }"><img @click="openModal" class="img-btn"
+            :src="Icon4" /></div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box" :style="{ backgroundImage: `url(${BG5})` }"><img @click="openModal" class="img-btn"
+            :src="Icon5" /></div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box" :style="{ backgroundImage: `url(${BG6})` }"><img @click="openModal" class="img-btn"
+            :src="Icon6" /></div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box" :style="{ backgroundImage: `url(${BG7})` }"><img @click="openModal" class="img-btn"
+            :src="Icon7" /></div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box" :style="{ backgroundImage: `url(${BG8})` }"><img @click="openModal" class="img-btn"
+            :src="Icon8" /></div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="box" :style="{ backgroundImage: `url(${BG9})` }"><img @click="openModal" class="img-btn"
+            :src="Icon9" /></div>
+      </swiper-slide>
+    </swiper>
+    <div class="modal" v-if="showModal">
+      <!-- <div class="close">&times;</div> -->
+      <div class="close" @click="closeModal">+</div>
+      <div class="title">线路概况</div>
+      <div class="section">西宁到鸟岛的车票价格是27.5元，支持支付宝，但是买 鸟岛到西宁 是不能用电子支付的，所以一定要提前准备好这一段车票的现金
 
-建议同时顺便买鸟岛到西宁的回程票，因为鸟岛站是无人车站，没有候车厅和售票点，如果你忘记购买了鸟岛到西宁的车票
+        建议同时顺便买鸟岛到西宁的回程票，因为鸟岛站是无人车站，没有候车厅和售票点，如果你忘记购买了鸟岛到西宁的车票
 
-那么你就要上车补票，补票不需要手续费</div>
-    <div class="buttons">
-      <img :src="L2"/>
-      <img :src="N2"/>
+        那么你就要上车补票，补票不需要手续费</div>
+      <div class="buttons">
+        <img :src="L2" />
+        <img :src="N2" />
+      </div>
     </div>
-  </div>
   </section>
- 
 </template>
 
 
@@ -62,24 +88,81 @@ import 'swiper/css';
 
 import 'swiper/css/pagination';
 // import required modules
-import { Pagination } from 'swiper';
+import { Pagination, Navigation } from 'swiper';
+import { onMounted } from 'vue';
+
+const refSwiper = ref();
 
 const pagination = ref({
-          clickable: true,
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
-          },
-        });
-const modules =  [Pagination];
+  clickable: true,
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+  },
+});
+const modules = [Pagination, Navigation];
 
 const showModal = ref(false);
 const openModal = () => {
   showModal.value = true;
 }
 
+const currentSwiper = ref();
+const onSwiper = (swiper) => {
+  currentSwiper.value = swiper;
+};
+
 const closeModal = () => {
   showModal.value = false;
 };
+
+onMounted(() => {
+  addEventListener();
+});
+
+const addEventListener = () => {
+  let box = document.querySelector('body') // 监听对象
+let startTime = '' // 触摸开始时间
+let startDistanceX = '' // 触摸开始X轴位置
+let startDistanceY = '' // 触摸开始Y轴位置
+let endTime = '' // 触摸结束时间
+let endDistanceX = '' // 触摸结束X轴位置
+let endDistanceY = '' // 触摸结束Y轴位置
+let moveTime = '' // 触摸时间
+let moveDistanceX = '' // 触摸移动X轴距离
+let moveDistanceY = '' // 触摸移动Y轴距离
+box.addEventListener("touchstart", (e) => {
+    startTime = new Date().getTime()
+    startDistanceX = e.touches[0].screenX
+    startDistanceY = e.touches[0].screenY
+});
+box.addEventListener("touchend", (e) => {
+    endTime = new Date().getTime()
+    endDistanceX = e.changedTouches[0].screenX
+    endDistanceY = e.changedTouches[0].screenY
+    moveTime = endTime - startTime
+    moveDistanceX = startDistanceX - endDistanceX
+    moveDistanceY = startDistanceY - endDistanceY
+    console.log(moveDistanceX, moveDistanceY)
+    // 判断滑动距离超过40 且 时间小于500毫秒
+    if ((Math.abs(moveDistanceX) > 40 || Math.abs(moveDistanceY) > 40) && moveTime < 500) {
+        // 判断X轴移动的距离是否大于Y轴移动的距离
+        if (Math.abs(moveDistanceX) > Math.abs(moveDistanceY)) {
+        // 左右
+        console.log(moveDistanceX > 0 ? '左' : '右')
+        } else {
+        // 上下
+        console.log(moveDistanceY > 0 ? '上' : '下')
+        if (moveDistanceY > 0) {
+          // refSwiper.value.slideNext(100, () => {} );
+          // const nav = refSwiper.value.modules[1];
+          currentSwiper.value.slideTo(currentSwiper.value.activeIndex + 1);
+        } else {
+          currentSwiper.value.slideTo(currentSwiper.value.activeIndex - 1);
+        }
+        }
+    }
+});
+}
 
 
 
@@ -146,39 +229,39 @@ const closeModal = () => {
 
 .modal {
   position: absolute;
-    top: 50%;
-    /* transform: translate(10px, 10px); */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10000;
-    width: 70%;
-    /* height: 500px; */
-    background-color: #CFA265;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: white;
+  top: 50%;
+  /* transform: translate(10px, 10px); */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  width: 70%;
+  /* height: 500px; */
+  background-color: #CFA265;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
 }
 
 .close {
   border: 2px solid white;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    align-self: flex-end;
-    margin-right: 15px;
-    margin-top: 15px;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    color: white;
-    /* font-weight: bolder; */
-    font-size: 34px;
-    text-align: center;
-    line-height: 19px;
-    vertical-align: middle;
-    transform: rotate(45deg);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  align-self: flex-end;
+  margin-right: 15px;
+  margin-top: 15px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  color: white;
+  /* font-weight: bolder; */
+  font-size: 34px;
+  text-align: center;
+  line-height: 19px;
+  vertical-align: middle;
+  transform: rotate(45deg);
 }
 
 .title {
@@ -197,15 +280,13 @@ const closeModal = () => {
 
 .buttons {
   display: flex;
-    /* align-items: center; */
-    /* align-content: center; */
-    justify-content: space-around;
-    padding-bottom: 15px;
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: space-around;
+  padding-bottom: 15px;
 }
 
 .buttons img {
   width: 120px;
   height: auto;
-}
-
-</style>
+}</style>

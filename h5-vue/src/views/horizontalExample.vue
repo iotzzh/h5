@@ -4,9 +4,7 @@
     <!-- 页面具体内容 -->
     <!-- Hello World!
     <button @click="clickIntoHome">点击进入主页</button> -->
-
     <img :src="IndexButtonImg" class="image" @click="clickIntoHome" />
-
   </section>
 </template>
 
@@ -30,7 +28,7 @@ const clickIntoHome = () => {
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: rgb(207,163,100);
+  background-color: rgb(207, 163, 100);
   position: relative;
 }
 
