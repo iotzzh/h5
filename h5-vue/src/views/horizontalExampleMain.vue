@@ -2,7 +2,7 @@
 
 <template>
   <section v-horizontal-screen style="position: relative;">
-    <swiper :modules="modules" class="mySwiper" ref="refSwiper" @swiper="onSwiper">
+    <swiper :modules="modules" class="mySwiper" ref="refSwiper" @swiper="onSwiper" @slideChange="onSlideChange">
       <swiper-slide>
         <div class="box" :style="{ backgroundImage: `url(${BG1})` }"><img @click="openModal" class="img-btn"
             :src="Icon1" /></div>
@@ -60,6 +60,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { gsap } from "gsap";
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import BG1 from '../assets/01.png';
@@ -155,9 +156,9 @@ box.addEventListener("touchend", (e) => {
         if (moveDistanceY > 0) {
           // refSwiper.value.slideNext(100, () => {} );
           // const nav = refSwiper.value.modules[1];
-          currentSwiper.value.slideTo(currentSwiper.value.activeIndex + 1);
+          currentSwiper.value.slideTo(currentSwiper.value.activeIndex + 1, 800);
         } else {
-          currentSwiper.value.slideTo(currentSwiper.value.activeIndex - 1);
+          currentSwiper.value.slideTo(currentSwiper.value.activeIndex - 1, 800);
         }
         }
     }
@@ -165,6 +166,32 @@ box.addEventListener("touchend", (e) => {
 }
 
 
+const onSlideChange = () => {
+  const dom = document.querySelectorAll('.img-btn')[currentSwiper.value.activeIndex];
+  gsap.from(dom, {
+    delay: 0.3,
+    duration: 1,
+    ease: "power2.inOut",
+    yoyo: true,
+    opacity: 0,
+  });
+  // gsap.from('.img-btn', {
+  // x: 100, // any properties (not limited to CSS)
+  // // backgroundColor: "red", // camelCase
+  // duration: 1, // seconds
+  // delay: 0.5,
+  // ease: "power2.inOut",
+  // stagger: 0.1, // stagger start times
+  // paused: true, // default is false
+  // overwrite: "auto", // default is false
+  // repeat: 2, // number of repeats (-1 for infinite)
+  // repeatDelay: 1, // seconds between repeats
+  // repeatRefresh: true, // invalidates on each repeat
+  // yoyo: true, // if true > A-B-B-A, if false > A-B-A-B
+  // yoyoEase: true, // or ease like "power2"
+  // immediateRender: false,
+  // });
+}
 
 </script>
 

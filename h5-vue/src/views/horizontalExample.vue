@@ -16,6 +16,8 @@ const router = useRouter();
 
 const clickIntoHome = () => {
   router.push({ name: 'horizontal-example-main' });
+  var audio = document.getElementById('bg-music');
+            audio.play();
 }
 
 
