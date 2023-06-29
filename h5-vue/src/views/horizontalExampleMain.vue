@@ -2,7 +2,7 @@
 
 <template>
   <section v-horizontal-screen style="position: relative;" class="box">
-    <swiper :modules="modules" class="mySwiper" ref="refSwiper" @swiper="onSwiper" @slideChange="onSlideChange">
+    <swiper :modules="modules" class="mySwiper" ref="refSwiper" @swiper="onSwiper" @slideChange="onSlideChange" :effect="'fade'">
       <swiper-slide>
         <div class="box" :style="{ backgroundImage: `url(${BG1})` }"><img @click="openModal" class="img-btn"
             :src="Icon1" /></div>
