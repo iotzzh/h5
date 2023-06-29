@@ -18,6 +18,9 @@
 </audio>
 
 <script>
+  document.body.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+}, { passive: false });
   // document.addEventListener('DOMContentLoaded', function () {
 //     function audioAutoPlay() {
 //         var audio = document.getElementById('bg-music');

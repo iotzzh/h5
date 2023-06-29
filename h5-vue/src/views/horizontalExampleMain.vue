@@ -1,7 +1,7 @@
 
 
 <template>
-  <section v-horizontal-screen style="position: relative;">
+  <section v-horizontal-screen style="position: relative;" class="box">
     <swiper :modules="modules" class="mySwiper" ref="refSwiper" @swiper="onSwiper" @slideChange="onSlideChange">
       <swiper-slide>
         <div class="box" :style="{ backgroundImage: `url(${BG1})` }"><img @click="openModal" class="img-btn"
@@ -121,7 +121,7 @@ onMounted(() => {
 });
 
 const addEventListener = () => {
-  let box = document.querySelector('body') // 监听对象
+  let box = document.querySelector('.box') // 监听对象
 let startTime = '' // 触摸开始时间
 let startDistanceX = '' // 触摸开始X轴位置
 let startDistanceY = '' // 触摸开始Y轴位置
