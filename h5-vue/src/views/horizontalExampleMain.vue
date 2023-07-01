@@ -12,11 +12,11 @@
       <div class="modal-box" style="width: 100%; height: 100%; overflow: hidden; position: relative;">
         <div class="buttons" style="text-align: center;">
           <img class="img" :src="MHome" style="margin: 0 20px;" @click="closeModal" />
-          <img class="img" :src="ML" style="margin: 0 20px;" />
-          <img class="img" :src="MN" style="margin: 0 20px;" />
+          <img class="img" :src="ML" style="margin: 0 20px;" @click="last" />
+          <img class="img" :src="MN" style="margin: 0 20px;" @click="next" />
         </div>
         <div style="width: 100%; height: 100%; overflow: auto;">
-          <img :src="currentImg" class="image" />
+          <img :src="modals[currentModalIndex]" class="image" />
         </div>
 
       </div>
@@ -45,10 +45,30 @@ import MN from '../assets/m-n.jpg'
 import MHome from '../assets/m-home.jpg'
 
 
-import ModalImg1 from '../assets/modal-img.jpg';
+import ModalImg1 from '../assets/m1.png';
+import ModalImg2 from '../assets/m2.png';
+import ModalImg3 from '../assets/m3.png';
+import ModalImg4 from '../assets/m4.png';
+import ModalImg5 from '../assets/m5.png';
+import ModalImg6 from '../assets/m6.png';
+import ModalImg7 from '../assets/m7.png';
+import ModalImg8 from '../assets/m8.png';
+import ModalImg9 from '../assets/m9.png';
 
 const currentImg = ref(ModalImg1);
 
+const currentModalIndex = ref(0);
+const modals = ref([
+  ModalImg1,
+  ModalImg2,
+  ModalImg3,
+  ModalImg4,
+  ModalImg5,
+  ModalImg6,
+  ModalImg7,
+  ModalImg8,
+  ModalImg9,
+]);
 
 const buttons = ref([]);
 
@@ -93,6 +113,14 @@ const startButtonsAni = () => {
   //   });
   // });
 };
+
+const last = () => {
+  if (currentModalIndex.value > 0) currentModalIndex.value--;
+}
+
+const next = () => {
+  if (currentModalIndex.value < modals.value.length) currentModalIndex.value++;
+}
 
 
 </script>
