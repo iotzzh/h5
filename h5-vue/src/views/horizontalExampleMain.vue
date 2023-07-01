@@ -8,14 +8,19 @@
       <img :src="btn.img" />
     </div>
 
-    <div class="modal" v-show="showModal">
-      <div class="modal-box" style="width: 100%; height: 100%; overflow: hidden; position: absolute;">
-        <div class="buttons" style="text-align: center; display: none;">
+    <div class="modal" v-show="showModal" style=" position: absolute;top: 0;left: 0;
+    z-index: 99;
+    width: 100vh;
+    height: 100vw;
+    overflow: hidden;">
+      <div class="modal-box" style="width: 100vh; height: 100vw; overflow: hidden; position: absolute;">
+        <div class="buttons" style="text-align: center; position: absolute; width: 100vh; overflow: hidden;">
           <img class="img" :src="MHome" style="margin: 0 20px;" @click="closeModal" />
           <img class="img" :src="ML" style="margin: 0 20px;" @click="last" />
           <img class="img" :src="MN" style="margin: 0 20px;" @click="next" />
         </div>
-        <div style="width: 100%; height: 100%; overflow: auto;">
+
+        <div style="width: 100vh; height: 100vw; overflow: auto;">
           <img :src="modals[currentModalIndex]" class="image" />
         </div>
 
@@ -154,14 +159,7 @@ const next = () => {
 
 
 .modal {
-  position: absolute;
-    top: 0;
-    /* transform: translate(10px, 10px); */
-    left: 0;
-    z-index: 99;
-    width: 100vh;
-    height: 100vw;
-    overflow: hidden;
+ 
 }
 
 .modal .image {
@@ -169,11 +167,7 @@ const next = () => {
 }
 
 .modal .buttons {
-  text-align: center;
-  position: absolute;
-  width: 100vh;
-  left: 0px;
-  bottom: 30px;
+
 }
 
 
