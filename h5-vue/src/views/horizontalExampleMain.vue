@@ -10,15 +10,15 @@
 
     <div class="modal" v-show="showModal">
       <div class="modal-box" style="width: 100%; height: 100%; overflow: hidden; position: relative;">
-        <div style="width: 100%; height: 100%; overflow: auto;">
-          <img :src="currentImg" class="image" />
-        </div>
         <div class="buttons" style="text-align: center;">
           <img class="img" :src="MHome" style="margin: 0 20px;" @click="closeModal" />
           <img class="img" :src="ML" style="margin: 0 20px;" />
           <img class="img" :src="MN" style="margin: 0 20px;" />
-
         </div>
+        <div style="width: 100%; height: 100%; overflow: auto;">
+          <img :src="currentImg" class="image" />
+        </div>
+
       </div>
     </div>
   </section>
@@ -83,15 +83,15 @@ const closeModal = () => {
 };
 
 const startButtonsAni = () => {
-  const imgBtns = document.querySelectorAll('.img');
-  imgBtns.forEach(x => {
-    gsap.from(x, {
-    duration: 1,
-    ease: "power2.inOut",
-    yoyo: true,
-    opacity: 0,
-    });
-  });
+  // const imgBtns = document.querySelectorAll('.img');
+  // imgBtns.forEach(x => {
+  //   gsap.from(x, {
+  //   duration: 1,
+  //   ease: "power2.inOut",
+  //   yoyo: true,
+  //   opacity: 0,
+  //   });
+  // });
 };
 
 

@@ -26,8 +26,8 @@ const clickIntoHome = () => {
 
 <style scoped>
 .box {
-  /* background: url(../assets/bg.jpg) no-repeat; */
-  /* background-size: cover; */
+  background: url(../assets/home.png) no-repeat;
+  background-size: cover;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -37,7 +37,7 @@ const clickIntoHome = () => {
 
 .image {
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
 }
