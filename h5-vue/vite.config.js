@@ -17,7 +17,7 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 1500, // 打包文件很大是报警 1500kb
-    cssTarget:'chrome83',
+    cssTarget:'chrome80',
   },
   // 本地运行配置，及反向代理配置
   server: {
