@@ -15,9 +15,10 @@ import IndexButtonImg from '../assets/button.png'
 const router = useRouter();
 
 const clickIntoHome = () => {
-  router.push({ name: 'horizontal-example-main' });
   var audio = document.getElementById('bg-music');
-            audio.play();
+  audio.play();
+  router.push({ name: 'horizontal-example-main' });
+
 }
 
 

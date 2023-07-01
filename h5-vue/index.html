@@ -24,8 +24,9 @@
     var audio = document.getElementById('bg-music');
     audio.play();
   });
+  
   document.body.addEventListener('touchmove', (e) => {
-    e.preventDefault();
+    // e.preventDefault();
   }, { passive: false });
 
   // document.addEventListener('DOMContentLoaded', function () {
@@ -41,18 +42,18 @@
 
 
   window.onload = function () {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitCancelFullScreen) {
-      document.webkitCancelFullScreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    }
+    // if (document.exitFullscreen) {
+    //   document.exitFullscreen();
+    // } else if (document.webkitCancelFullScreen) {
+    //   document.webkitCancelFullScreen();
+    // } else if (document.mozCancelFullScreen) {
+    //   document.mozCancelFullScreen();
+    // } else if (document.msExitFullscreen) {
+    //   document.msExitFullscreen();
+    // }
 
     var audio = document.getElementById('bg-music');
-    audio.play();
+    audio?.play();
   }
 
 </script>
