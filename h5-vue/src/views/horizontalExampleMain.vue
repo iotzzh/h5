@@ -9,7 +9,7 @@
     </div>
 
     <div class="modal" v-show="showModal">
-      <div class="modal-box" style="width: 100%; height: 100%; overflow: hidden; position: relative;">
+      <div class="modal-box" style="width: 100%; height: 100%; overflow: hidden; position: absolute;">
         <div class="buttons" style="text-align: center;">
           <img class="img" :src="MHome" style="margin: 0 20px;" @click="closeModal" />
           <img class="img" :src="ML" style="margin: 0 20px;" @click="last" />
@@ -158,7 +158,7 @@ const next = () => {
   top: 0;
   /* transform: translate(10px, 10px); */
   left: 0;
-  z-index: 10000;
+  z-index: 1001;
   width: 100%;
   height: 100%;
   overflow: hidden;
