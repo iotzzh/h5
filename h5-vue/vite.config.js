@@ -15,6 +15,10 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  build: {
+    chunkSizeWarningLimit: 1500, // 打包文件很大是报警 1500kb
+    cssTarget:'chrome83',
+  },
   // 本地运行配置，及反向代理配置
   server: {
     host: '0.0.0.0',
