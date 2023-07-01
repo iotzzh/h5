@@ -50,7 +50,7 @@ import ModalImg9 from '../assets/m9.png';
 const currentImg = ref(ModalImg1);
 const router = useRouter();
 
-const currentModalIndex = ref(0);
+const currentModalIndex = ref(Number(router.currentRoute.value.query.index));
 const modals = ref([
     ModalImg1,
     ModalImg2,

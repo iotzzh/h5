@@ -4,7 +4,7 @@
   <section v-horizontal-screen style="position: relative;" class="box">
     <img @load="loadImg" class="bg" :src="BgImg"
       style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
-    <div class="button" v-for="btn in buttons" :style="{ left: `${btn.position}px` }" @click="openModal">
+    <div class="button" v-for="(btn, index) in buttons" :style="{ left: `${btn.position}px` }" @click="() => openModal(index)">
       <img :src="btn.img" />
     </div>
 
@@ -96,8 +96,8 @@ const loadImg = () => {
 };
 
 const showModal = ref(false);
-const openModal = () => {
-  router.push('modal');
+const openModal = (index) => {
+  router.push({ path: 'modal', params: { index }, query: { index } });
   // showModal.value = true;
   //   document.body.style.overflow = 'hidden';
   //   const modalDom = document.querySelector('.modal');
