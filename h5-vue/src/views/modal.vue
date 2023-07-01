@@ -91,7 +91,8 @@ const openModal = () => {
 };
 
 const closeModal = () => {
-    router.push({ name: 'horizontal-example-main' });
+    // router.push({ name: 'horizontal-example-main' });
+    router.go(-1);
 };
 
 const startButtonsAni = () => {
