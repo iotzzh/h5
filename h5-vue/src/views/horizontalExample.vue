@@ -18,7 +18,6 @@ const clickIntoHome = () => {
   var audio = document.getElementById('bg-music');
   audio.play();
   router.push({ name: 'horizontal-example-main' });
-
 }
 
 
