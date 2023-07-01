@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HorizontalExample from '../views/horizontalExample.vue'
 import HorizontalExampleMain from '../views/horizontalExampleMain.vue'
+import Modal from '../views/modal.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,11 @@ const router = createRouter({
       path: '/horizontal-example-main',
       name: 'horizontal-example-main',
       component: HorizontalExampleMain
+    },
+    {
+      path: '/modal',
+      name: 'modal',
+      component: Modal
     },
   ]
 })

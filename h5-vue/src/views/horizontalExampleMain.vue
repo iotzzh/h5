@@ -14,7 +14,7 @@
     height: 100vw;
     overflow: hidden;">
       <div class="modal-box" style="width: 100vh; height: 100vw; overflow: hidden; position: absolute;">
-        <div class="buttons" style="text-align: center; position: absolute; width: 100vh; overflow: hidden;">
+        <div class="buttons" style="text-align: center; position: absolute; width: 100vh; left: 0px; bottom: 30px; overflow: hidden;">
           <img class="img" :src="MHome" style="margin: 0 20px;" @click="closeModal" />
           <img class="img" :src="ML" style="margin: 0 20px;" @click="last" />
           <img class="img" :src="MN" style="margin: 0 20px;" @click="next" />
@@ -32,6 +32,7 @@
 
 <script setup>
 import { nextTick, onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { gsap } from "gsap";
 // Import Swiper Vue.js components
 import BgImg from '../assets/bg-img.jpg'
@@ -61,6 +62,7 @@ import ModalImg8 from '../assets/m8.png';
 import ModalImg9 from '../assets/m9.png';
 
 const currentImg = ref(ModalImg1);
+const router = useRouter();
 
 const currentModalIndex = ref(0);
 const modals = ref([
@@ -95,11 +97,12 @@ const loadImg = () => {
 
 const showModal = ref(false);
 const openModal = () => {
-  showModal.value = true;
-    document.body.style.overflow = 'hidden';
-    const modalDom = document.querySelector('.modal');
-    modalDom.style.left = `${window.scrollY}px`;
-    startButtonsAni();
+  router.push('modal');
+  // showModal.value = true;
+  //   document.body.style.overflow = 'hidden';
+  //   const modalDom = document.querySelector('.modal');
+  //   modalDom.style.left = `${window.scrollY}px`;
+  //   startButtonsAni();
 };
 
 const closeModal = () => {
