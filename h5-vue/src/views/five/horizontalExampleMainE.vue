@@ -80,7 +80,7 @@ const openModal = (index) => {
 };
 
 const clickStopMusic = () => {
-  var audio = document.getElementById('bg-music');
+  var audio = document.getElementById('bg-music2');
   audio?.pause();
 }
 

@@ -34,25 +34,25 @@ import IconMusic from '../../assets/iconmusic.png';
 const router = useRouter();
 
 const clickIntoHome = () => {
-  var audio = document.getElementById('bg-music');
+  var audio = document.getElementById('bg-music2');
   audio.play();
   router.push({ name: 'fivehorizontal-example-main' });
 }
 
 const clickStopMusic = () => {
-  var audio = document.getElementById('bg-music');
+  var audio = document.getElementById('bg-music2');
   audio?.pause();
 }
 
 
 const clickIntoHomeE = () => {
-  var audio = document.getElementById('bg-music');
+  var audio = document.getElementById('bg-music2');
   audio?.play();
   router.push({ name: 'fivehorizontal-example-maine' });
 }
 
 const clickIntoHomeF = () => {
-  var audio = document.getElementById('bg-music');
+  var audio = document.getElementById('bg-music2');
   audio?.play();
   router.push({ name: 'fivehorizontal-example-mainf' });
 }
