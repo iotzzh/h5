@@ -1,10 +1,13 @@
 
 <template>
   <section v-horizontal-screen @touchmove.prevent class="box">
-    <!-- 页面具体内容 -->
-    <!-- Hello World!
-    <button @click="clickIntoHome">点击进入主页</button> -->
-    <img :src="IndexButtonImg" class="image" @click="clickIntoHome" />
+    <div style="position: absolute; bottom: 40px;  left: 50%;
+  transform: translateX(-50%);">
+      <img :src="IndexButtonImg" class="image" @click="clickIntoHome" />
+    <img :src="IndexButtonImg" class="image" @click="clickIntoHomeE" />
+    <img :src="IndexButtonImg" class="image" @click="clickIntoHomeF" />
+    </div>
+
   </section>
 </template>
 
@@ -20,6 +23,17 @@ const clickIntoHome = () => {
   router.push({ name: 'horizontal-example-main' });
 }
 
+const clickIntoHomeE = () => {
+  var audio = document.getElementById('bg-music');
+  audio.play();
+  router.push({ name: 'horizontal-example-maine' });
+}
+
+const clickIntoHomeF = () => {
+  var audio = document.getElementById('bg-music');
+  audio.play();
+  router.push({ name: 'horizontal-example-mainf' });
+}
 
 </script>
 
@@ -34,10 +48,10 @@ const clickIntoHome = () => {
   position: relative;
 }
 
-.image {
+/* .image {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-}
+} */
 </style>
