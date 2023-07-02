@@ -12,7 +12,7 @@
 
 
 
-    
+
     <div class="modal" v-show="showModal" style=" position: absolute;top: 0;left: 0;
     z-index: 99;
     width: 100vh;
@@ -102,7 +102,7 @@ const loadImg = () => {
 
 const showModal = ref(false);
 const openModal = (index) => {
-  router.push({ path: 'modal', params: { index }, query: { index } });
+  router.push({ path: 'modal', params: { index }, query: { index, lan: 'ch' } });
   // showModal.value = true;
   //   document.body.style.overflow = 'hidden';
   //   const modalDom = document.querySelector('.modal');

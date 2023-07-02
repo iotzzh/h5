@@ -102,7 +102,7 @@ const loadImg = () => {
 
 const showModal = ref(false);
 const openModal = (index) => {
-  router.push({ path: 'modal', params: { index }, query: { index } });
+  router.push({ path: 'modal', params: { index }, query: { index, lan: 'fr' } });
   // showModal.value = true;
   //   document.body.style.overflow = 'hidden';
   //   const modalDom = document.querySelector('.modal');

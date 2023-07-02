@@ -51,17 +51,27 @@ const currentImg = ref(ModalImg1);
 const router = useRouter();
 
 const currentModalIndex = ref(Number(router.currentRoute.value.query.index));
-const modals = ref([
-    ModalImg1,
-    ModalImg2,
-    ModalImg3,
-    ModalImg4,
-    ModalImg5,
-    ModalImg6,
-    ModalImg7,
-    ModalImg8,
-    ModalImg9,
-]);
+const lan = ref(router.currentRoute.value.query.lan);
+// const modals = ref([
+//     ModalImg1,
+//     ModalImg2,
+//     ModalImg3,
+//     ModalImg4,
+//     ModalImg5,
+//     ModalImg6,
+//     ModalImg7,
+//     ModalImg8,
+//     ModalImg9,
+// ]);
+
+const modals = ref();
+if (lan === 'ch') {
+    modals.value = [ModalImg1,ModalImg2,ModalImg3,ModalImg4,ModalImg5,ModalImg6,ModalImg7,ModalImg8,ModalImg9];
+} else if (lan === 'en') {
+    modals.value = [ModalImg1,ModalImg2,ModalImg3,ModalImg4,ModalImg5,ModalImg6,ModalImg7,ModalImg8,ModalImg9];
+} else if (lan === 'fr') {
+    modals.value = [ModalImg1,ModalImg2,ModalImg3,ModalImg4,ModalImg5,ModalImg6,ModalImg7,ModalImg8,ModalImg9];
+}
 
 const buttons = ref([]);
 
