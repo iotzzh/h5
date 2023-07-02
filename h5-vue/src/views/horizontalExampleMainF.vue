@@ -4,9 +4,8 @@
   <section v-horizontal-screen style="position: relative;" class="box">
     <img @load="loadImg" class="bg" :src="BgImgF"
       style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
-    <div class="button"  style="position: absolute; top: 11vw;left: 20vw; width: 50px; height: 50px; overflow: hidden; position: absolute;" @click="clickStopMusic">
-      <img :src="IconMusic" />  
-    </div>
+    <img @load="loadImg" class="bg" :src="BgImgBaseF"
+      style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
     <div class="button"  style="position: absolute; top: 9.7%;left: 11.4%; width: 5%; height: 10%; overflow: hidden; position: absolute;" @click="clickStopMusic">
       <img :src="IconMusic" />  
     </div>
@@ -16,6 +15,10 @@
     <div class="button" v-for="(btn, index) in buttons" :style="{ left: `${btn.position}px` }" @click="() => openModal(index)">
       <img :src="btn.img" />
     </div>
+
+
+
+
 
     
     <div class="modal" v-show="showModal" style=" position: absolute;top: 0;left: 0;
@@ -57,10 +60,10 @@ import Icon7 from '../assets/icon7f.gif';
 import Icon8 from '../assets/icon8f.gif';
 import Icon9 from '../assets/icon9f.gif';
 import Run from '../assets/runF.gif';
-
-import ML from '../assets/m-l.jpg'
-import MN from '../assets/m-n.jpg'
-import MHome from '../assets/m-home.jpg'
+import BgImgBaseF from '../assets/base_runf.gif';
+import ML from '../assets/m-l-f.jpg'
+import MN from '../assets/m-n-f.jpg'
+import MHome from '../assets/m-home-f.jpg'
 
 
 import ModalImg1 from '../assets/m1.png';
@@ -151,7 +154,10 @@ const scrollerID = ref();
 const startScroll = () => {
   scrollerID.value = setInterval(function () {
     window.scrollBy(0, 1);
-  }, 60);
+    // if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    //   stopScroll();
+    // }
+  }, 45);
   return scrollerID.value;
 }
 

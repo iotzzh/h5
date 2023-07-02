@@ -5,6 +5,12 @@ import HorizontalExampleMainE from '../views/horizontalExampleMainE.vue'
 import HorizontalExampleMainF from '../views/horizontalExampleMainF.vue'
 import Modal from '../views/modal.vue'
 
+// import FiveHorizontalExample from '../views/five/horizontalExample.vue'
+// import FiveHorizontalExampleMain from '../views/five/horizontalExampleMain.vue'
+// import FiveHorizontalExampleMainE from '../views/five/horizontalExampleMainE.vue'
+// import FiveHorizontalExampleMainF from '../views/five/horizontalExampleMainF.vue'
+// import FiveModal from '../views/five/modal.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -37,6 +43,31 @@ const router = createRouter({
       name: 'modal',
       component: Modal
     },
+    // {
+    //   path: '/fivehorizontal-example',
+    //   name: 'fivehorizontal-example',
+    //   component: FiveHorizontalExample
+    // },
+    // {
+    //   path: '/fivehorizontal-example-main',
+    //   name: 'fivehorizontal-example-main',
+    //   component: FiveHorizontalExampleMain
+    // },
+    // {
+    //   path: '/fivehorizontal-example-maine',
+    //   name: 'fivehorizontal-example-maine',
+    //   component: FiveHorizontalExampleMainE
+    // },
+    // {
+    //   path: '/fivehorizontal-example-mainf',
+    //   name: 'fivehorizontal-example-mainf',
+    //   component: FiveHorizontalExampleMainF
+    // },
+    // {
+    //   path: '/fivemodal',
+    //   name: 'fivemodal',
+    //   component: FiveModal
+    // },
   ]
 })
 

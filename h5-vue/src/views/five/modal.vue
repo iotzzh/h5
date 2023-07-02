@@ -4,9 +4,9 @@
     <section v-horizontal-screen class="box1">
         
         <div class="buttons" style="position: absolute; width: 100vh; left: 0; bottom: 30px; text-align: center; z-index: 1;">
-            <img class="img" :src="rt[2]" style="margin: 0 20px;" @click="closeModal" />
-            <img class="img" :src="rt[1]" style="margin: 0 20px;" @click="last" />
-            <img class="img" :src="rt[0]" style="margin: 0 20px;" @click="next" />
+            <img class="img" :src="MHome" style="margin: 0 20px;" @click="closeModal" />
+            <img class="img" :src="ML" style="margin: 0 20px;" @click="last" />
+            <img class="img" :src="MN" style="margin: 0 20px;" @click="next" />
         </div>
 
         <div style="overflow: auto;" class="image-box">
@@ -20,42 +20,24 @@
 import { nextTick, onMounted, ref } from 'vue';
 import { gsap } from "gsap";
 import { useRouter } from 'vue-router';
-// Import Swiper Vue.js components
-import BgImg from '../assets/bg-img.jpg'
-import Icon1 from '../assets/icon-01.gif';
-import Icon2 from '../assets/icon-02.gif';
-import Icon3 from '../assets/icon-03.gif';
-import Icon4 from '../assets/icon-04.gif';
-import Icon5 from '../assets/icon-05.gif';
-import Icon6 from '../assets/icon-06.gif';
-import Icon7 from '../assets/icon-07.gif';
-import Icon8 from '../assets/icon-08.gif';
-import Icon9 from '../assets/icon-09.gif';
 
 import ML from '../assets/m-l.jpg'
 import MN from '../assets/m-n.jpg'
 import MHome from '../assets/m-home.jpg'
 
-import MLE from '../assets/m-l-e.jpg'
-import MNE from '../assets/m-n-e.jpg'
-import MHomeE from '../assets/m-home-e.jpg'
 
-import MLF from '../assets/m-l-f.jpg'
-import MNF from '../assets/m-n-f.jpg'
-import MHomeF from '../assets/m-home-f.jpg'
+import ModalImg1 from '../../assets/five/m1.jpg';
+import ModalImg2 from '../../assets/five/m2.jpg';
+import ModalImg3 from '../../assets/five/m3.jpg';
+import ModalImg4 from '../../assets/five/m4.jpg';
+import ModalImg5 from '../../assets/five/m5.jpg';
+import ModalImg6 from '../../assets/five/m6.jpg';
+import ModalImg7 from '../../assets/five/m7.jpg';
+import ModalImg8 from '../../assets/five/m8.jpg';
+import ModalImg9 from '../../assets/five/m9.jpg';
 
-import ModalImg1 from '../assets/m1.png';
-import ModalImg2 from '../assets/m2.png';
-import ModalImg3 from '../assets/m3.png';
-import ModalImg4 from '../assets/m4.png';
-import ModalImg5 from '../assets/m5.png';
-import ModalImg6 from '../assets/m6.png';
-import ModalImg7 from '../assets/m7.png';
-import ModalImg8 from '../assets/m8.png';
-import ModalImg9 from '../assets/m9.png';
-
-import ModalImg1E from '../assets/m1e.png';
-import ModalImg2E from '../assets/m2e.png';
+import ModalImg1E from '../../assets/m1e.png';
+import ModalImg2E from '../../assets/m2e.png';
 import ModalImg3E from '../assets/m3e.png';
 import ModalImg4E from '../assets/m4e.png';
 import ModalImg5E from '../assets/m5e.png';
@@ -79,48 +61,15 @@ const router = useRouter();
 
 const currentModalIndex = ref(Number(router.currentRoute.value.query.index));
 const lan = ref(router.currentRoute.value.query.lan);
-// const modals = ref([
-//     ModalImg1,
-//     ModalImg2,
-//     ModalImg3,
-//     ModalImg4,
-//     ModalImg5,
-//     ModalImg6,
-//     ModalImg7,
-//     ModalImg8,
-//     ModalImg9,
-// ]);
 
 const modals = ref();
-const rt = ref();
 if (lan.value === 'ch') {
     modals.value = [ModalImg1,ModalImg2,ModalImg3,ModalImg4,ModalImg5,ModalImg6,ModalImg7,ModalImg8,ModalImg9];
-    rt.value = [ML,MN,MHome]
 } else if (lan.value === 'en') {
     modals.value = [ModalImg1E,ModalImg2E,ModalImg3E,ModalImg4E,ModalImg5E,ModalImg6E,ModalImg7E,ModalImg8E,ModalImg9E];
-    rt.value = [MLE,MNE,MHomeE]
 } else if (lan.value === 'fr') {
     modals.value = [ModalImg1F,ModalImg2F,ModalImg3F,ModalImg4F,ModalImg5F,ModalImg6F,ModalImg7F,ModalImg8F,ModalImg9F];
-    rt.value = [MLF,MNF,MHomeF]
 }
-
-const buttons = ref([]);
-
-const loadImg = () => {
-    const boxDom = document.querySelector('.bg');
-    const width = boxDom.clientWidth;
-    buttons.value = [
-        { img: Icon1, position: width * 0.015 },
-        { img: Icon2, position: width * 0.110 },
-        { img: Icon3, position: width * 0.222 },
-        { img: Icon4, position: width * 0.330 },
-        { img: Icon5, position: width * 0.440 },
-        { img: Icon6, position: width * 0.550 },
-        { img: Icon7, position: width * 0.665 },
-        { img: Icon8, position: width * 0.780 },
-        { img: Icon9, position: width * 0.885 },
-    ];
-};
 
 const showModal = ref(false);
 const openModal = () => {

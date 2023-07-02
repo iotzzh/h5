@@ -1,11 +1,12 @@
-
+<!-- 
 
 <template>
   <section v-horizontal-screen style="position: relative;" class="box">
-    <img @load="loadImg" class="bg" :src="BgImgE"
+    <img @load="loadImg" class="bg" :src="BgImgF"
       style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
-    <img @load="loadImg" class="bg" :src="BgImgBaseE"
-      style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
+    <div class="button"  style="position: absolute; top: 11vw;left: 20vw; width: 50px; height: 50px; overflow: hidden; position: absolute;" @click="clickStopMusic">
+      <img :src="IconMusic" />  
+    </div>
     <div class="button"  style="position: absolute; top: 9.7%;left: 11.4%; width: 5%; height: 10%; overflow: hidden; position: absolute;" @click="clickStopMusic">
       <img :src="IconMusic" />  
     </div>
@@ -15,7 +16,6 @@
     <div class="button" v-for="(btn, index) in buttons" :style="{ left: `${btn.position}px` }" @click="() => openModal(index)">
       <img :src="btn.img" />
     </div>
-
 
     
     <div class="modal" v-show="showModal" style=" position: absolute;top: 0;left: 0;
@@ -45,34 +45,33 @@ import { nextTick, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { gsap } from "gsap";
 // Import Swiper Vue.js components
-import BgImg from '../assets/bg-img.jpg'
-import BgImgE from '../assets/bg-imge.jpg'
-import BgImgBaseE from '../assets/base_rune.gif'
+import BgImgF from '../assets/bg-imgf.jpg'
 import IconMusic from '../assets/iconmusic.png';
-import Icon1 from '../assets/icon1e.gif';
-import Icon2 from '../assets/icon2e.gif';
-import Icon3 from '../assets/icon3e.gif';
-import Icon4 from '../assets/icon4e.gif';
-import Icon5 from '../assets/icon5e.gif';
-import Icon6 from '../assets/icon6e.gif';
-import Icon7 from '../assets/icon7e.gif';
-import Icon8 from '../assets/icon8e.gif';
-import Icon9 from '../assets/icon9e.gif';
-import Run from '../assets/runE.gif';
-import ML from '../assets/m-l-e.jpg'
-import MN from '../assets/m-n-e.jpg'
-import MHome from '../assets/m-home-e.jpg'
+import Icon1 from '../assets/icon1f.gif';
+import Icon2 from '../assets/icon2f.gif';
+import Icon3 from '../assets/icon3f.gif';
+import Icon4 from '../assets/icon4f.gif';
+import Icon5 from '../assets/icon5f.gif';
+import Icon6 from '../assets/icon6f.gif';
+import Icon7 from '../assets/icon7f.gif';
+import Icon8 from '../assets/icon8f.gif';
+import Icon9 from '../assets/icon9f.gif';
+import Run from '../assets/runF.gif';
+
+import ML from '../assets/m-l.jpg'
+import MN from '../assets/m-n.jpg'
+import MHome from '../assets/m-home.jpg'
 
 
-import ModalImg1 from '../assets/m1e.png';
-import ModalImg2 from '../assets/m2e.png';
-import ModalImg3 from '../assets/m3e.png';
-import ModalImg4 from '../assets/m4e.png';
-import ModalImg5 from '../assets/m5e.png';
-import ModalImg6 from '../assets/m6e.png';
-import ModalImg7 from '../assets/m7e.png';
-import ModalImg8 from '../assets/m8e.png';
-import ModalImg9 from '../assets/m9e.png';
+import ModalImg1 from '../assets/m1.png';
+import ModalImg2 from '../assets/m2.png';
+import ModalImg3 from '../assets/m3.png';
+import ModalImg4 from '../assets/m4.png';
+import ModalImg5 from '../assets/m5.png';
+import ModalImg6 from '../assets/m6.png';
+import ModalImg7 from '../assets/m7.png';
+import ModalImg8 from '../assets/m8.png';
+import ModalImg9 from '../assets/m9.png';
 
 const currentImg = ref(ModalImg1);
 const router = useRouter();
@@ -110,7 +109,7 @@ const loadImg = () => {
 
 const showModal = ref(false);
 const openModal = (index) => {
-  router.push({ path: 'modal', params: { index }, query: { index, lan: 'en' } });
+  router.push({ path: 'modal', params: { index }, query: { index, lan: 'fr' } });
   // showModal.value = true;
   //   document.body.style.overflow = 'hidden';
   //   const modalDom = document.querySelector('.modal');
@@ -118,15 +117,15 @@ const openModal = (index) => {
   //   startButtonsAni();
 };
 
-const clickStopMusic = () => {
-  var audio = document.getElementById('bg-music');
-  audio?.pause();
-}
-
 const closeModal = () => {
   showModal.value = false;
   document.body.style.overflow = 'auto';
 };
+
+const clickStopMusic = () => {
+  var audio = document.getElementById('bg-music');
+  audio?.pause();
+}
 
 const startButtonsAni = () => {
   // const imgBtns = document.querySelectorAll('.img');
@@ -152,10 +151,7 @@ const scrollerID = ref();
 const startScroll = () => {
   scrollerID.value = setInterval(function () {
     window.scrollBy(0, 1);
-    // if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    //   stopScroll();
-    // }
-  }, 45);
+  }, 60);
   return scrollerID.value;
 }
 
@@ -223,4 +219,4 @@ document.body.addEventListener("touchstart", (e) => {
   filter: drop-shadow(2px 4px 6px black);
 
 }
-</style>
+</style> -->

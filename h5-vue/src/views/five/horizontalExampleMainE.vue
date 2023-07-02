@@ -1,10 +1,8 @@
-
+<!-- 
 
 <template>
   <section v-horizontal-screen style="position: relative;" class="box">
     <img @load="loadImg" class="bg" :src="BgImgE"
-      style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
-    <img @load="loadImg" class="bg" :src="BgImgBaseE"
       style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
     <div class="button"  style="position: absolute; top: 9.7%;left: 11.4%; width: 5%; height: 10%; overflow: hidden; position: absolute;" @click="clickStopMusic">
       <img :src="IconMusic" />  
@@ -47,7 +45,6 @@ import { gsap } from "gsap";
 // Import Swiper Vue.js components
 import BgImg from '../assets/bg-img.jpg'
 import BgImgE from '../assets/bg-imge.jpg'
-import BgImgBaseE from '../assets/base_rune.gif'
 import IconMusic from '../assets/iconmusic.png';
 import Icon1 from '../assets/icon1e.gif';
 import Icon2 from '../assets/icon2e.gif';
@@ -59,9 +56,9 @@ import Icon7 from '../assets/icon7e.gif';
 import Icon8 from '../assets/icon8e.gif';
 import Icon9 from '../assets/icon9e.gif';
 import Run from '../assets/runE.gif';
-import ML from '../assets/m-l-e.jpg'
-import MN from '../assets/m-n-e.jpg'
-import MHome from '../assets/m-home-e.jpg'
+import ML from '../assets/m-l.jpg'
+import MN from '../assets/m-n.jpg'
+import MHome from '../assets/m-home.jpg'
 
 
 import ModalImg1 from '../assets/m1e.png';
@@ -152,10 +149,7 @@ const scrollerID = ref();
 const startScroll = () => {
   scrollerID.value = setInterval(function () {
     window.scrollBy(0, 1);
-    // if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    //   stopScroll();
-    // }
-  }, 45);
+  }, 60);
   return scrollerID.value;
 }
 
@@ -181,9 +175,6 @@ document.body.addEventListener("touchstart", (e) => {
   height: 100%;
   background-repeat: repeat;
   background-size: cover;
-  /* object-fit: cover; */
-  /* position: relative; */
-  /* overflow: auto; */
 }
 
 .button {
@@ -223,4 +214,4 @@ document.body.addEventListener("touchstart", (e) => {
   filter: drop-shadow(2px 4px 6px black);
 
 }
-</style>
+</style> -->
