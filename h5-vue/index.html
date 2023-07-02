@@ -14,20 +14,16 @@
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
 </body>
-<audio autoplay="autoplay" loop="loop" preload="auto" controls="controls" src="https://h5.iotzzh.com/1.mp3"
+<audio loop="loop" preload="auto" controls="controls" src="https://h5.iotzzh.com/1.mp3"
   style="display: none;" id="bg-music" autoplay webkit-playsinline playsinline>
   <source src="https://h5.iotzzh.com/1.mp3" />
 </audio>
 
 <script>
-  document.body.addEventListener("touchstart", (e) => {
-    var audio = document.getElementById('bg-music');
-    audio.play();
-  });
-  
-  document.body.addEventListener('touchmove', (e) => {
-    // e.preventDefault();
-  }, { passive: false });
+  // document.body.addEventListener("touchstart", (e) => {
+  //    var audio = document.getElementById('bg-music');
+  //    audio?.play();
+  // });
 
   // document.addEventListener('DOMContentLoaded', function () {
   //   function audioAutoPlay() {
@@ -40,6 +36,15 @@
   //   audioAutoPlay();
   // });
 
+  // 禁用屏幕旋转事件
+  window.addEventListener("orientationchange", function(event) {
+    event.preventDefault();
+  }, false);
+
+  setTimeout(function() {
+      var scrollContainer = document.getElementById('app');
+      scrollContainer.classList.add('slide-down');
+}, 4000); // 4000毫秒即4秒
 
   window.onload = function () {
     // if (document.exitFullscreen) {
@@ -52,8 +57,8 @@
     //   document.msExitFullscreen();
     // }
 
-    var audio = document.getElementById('bg-music');
-    audio?.play();
+    //var audio = document.getElementById('bg-music');
+    //audio?.play();
   }
 
 </script>

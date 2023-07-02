@@ -2,14 +2,17 @@
 
 <template>
   <section v-horizontal-screen style="position: relative;" class="box">
-    <img @load="loadImg" class="bg" :src="BgImg"
+    <img @load="loadImg" class="bg" :src="BgImgE"
       style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
+    <div class="button"  style="position: absolute; top: 9.7%;left: 11.4%; width: 5%; height: 10%; overflow: hidden; position: absolute;" @click="clickStopMusic">
+      <img :src="IconMusic" />  
+    </div>
+    <div class="button"  style="position: absolute; top: 90%;left: 20%; overflow: hidden; position: absolute;" @click="clickStopMusic">
+      <img :src="Run" />  
+    </div>
     <div class="button" v-for="(btn, index) in buttons" :style="{ left: `${btn.position}px` }" @click="() => openModal(index)">
       <img :src="btn.img" />
     </div>
-
-
-
 
 
     
@@ -41,30 +44,32 @@ import { useRouter } from 'vue-router';
 import { gsap } from "gsap";
 // Import Swiper Vue.js components
 import BgImg from '../assets/bg-img.jpg'
-import Icon1 from '../assets/icon01.png';
-import Icon2 from '../assets/icon02.png';
-import Icon3 from '../assets/icon03.png';
-import Icon4 from '../assets/icon04.png';
-import Icon5 from '../assets/icon05.png';
-import Icon6 from '../assets/icon06.png';
-import Icon7 from '../assets/icon07.png';
-import Icon8 from '../assets/icon08.png';
-import Icon9 from '../assets/icon09.png';
-
+import BgImgE from '../assets/bg-imge.jpg'
+import IconMusic from '../assets/iconmusic.png';
+import Icon1 from '../assets/icon1e.gif';
+import Icon2 from '../assets/icon2e.gif';
+import Icon3 from '../assets/icon3e.gif';
+import Icon4 from '../assets/icon4e.gif';
+import Icon5 from '../assets/icon5e.gif';
+import Icon6 from '../assets/icon6e.gif';
+import Icon7 from '../assets/icon7e.gif';
+import Icon8 from '../assets/icon8e.gif';
+import Icon9 from '../assets/icon9e.gif';
+import Run from '../assets/runE.gif';
 import ML from '../assets/m-l.jpg'
 import MN from '../assets/m-n.jpg'
 import MHome from '../assets/m-home.jpg'
 
 
-import ModalImg1 from '../assets/m1.png';
-import ModalImg2 from '../assets/m2.png';
-import ModalImg3 from '../assets/m3.png';
-import ModalImg4 from '../assets/m4.png';
-import ModalImg5 from '../assets/m5.png';
-import ModalImg6 from '../assets/m6.png';
-import ModalImg7 from '../assets/m7.png';
-import ModalImg8 from '../assets/m8.png';
-import ModalImg9 from '../assets/m9.png';
+import ModalImg1 from '../assets/m1e.png';
+import ModalImg2 from '../assets/m2e.png';
+import ModalImg3 from '../assets/m3e.png';
+import ModalImg4 from '../assets/m4e.png';
+import ModalImg5 from '../assets/m5e.png';
+import ModalImg6 from '../assets/m6e.png';
+import ModalImg7 from '../assets/m7e.png';
+import ModalImg8 from '../assets/m8e.png';
+import ModalImg9 from '../assets/m9e.png';
 
 const currentImg = ref(ModalImg1);
 const router = useRouter();
@@ -110,6 +115,11 @@ const openModal = (index) => {
   //   startButtonsAni();
 };
 
+const clickStopMusic = () => {
+  var audio = document.getElementById('bg-music');
+  audio?.pause();
+}
+
 const closeModal = () => {
   showModal.value = false;
   document.body.style.overflow = 'auto';
@@ -135,7 +145,27 @@ const next = () => {
   if (currentModalIndex.value < modals.value.length) currentModalIndex.value++;
 }
 
+const scrollerID = ref();
+const startScroll = () => {
+  scrollerID.value = setInterval(function () {
+    window.scrollBy(0, 1);
+  }, 60);
+  return scrollerID.value;
+}
 
+onMounted(() => {
+  setTimeout(() => {
+    startScroll();
+  }, 4000);
+});
+
+function stopScroll() {
+  clearInterval(scrollerID.value);
+}
+
+document.body.addEventListener("touchstart", (e) => {
+  stopScroll();
+});
 </script>
 
 
@@ -145,9 +175,6 @@ const next = () => {
   height: 100%;
   background-repeat: repeat;
   background-size: cover;
-  /* object-fit: cover; */
-  /* position: relative; */
-  /* overflow: auto; */
 }
 
 .button {
