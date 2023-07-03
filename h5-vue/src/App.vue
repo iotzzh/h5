@@ -22,7 +22,9 @@ const showMessage = ref(false);
 </script>
 
 <template>
-  <div v-if="showMessage"><p>请保持竖屏浏览</p></div>
+  <div v-if="showMessage" v-horizontal-screen>
+    <img src="./assets/tips.png" style="height: 100vh; width: 100vw;" />
+  </div>
   <RouterView v-else />
 </template>
 
