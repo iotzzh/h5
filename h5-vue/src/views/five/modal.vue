@@ -40,17 +40,17 @@ import ModalImg3 from '../../assets/five/m3.jpg';
 import ModalImg4 from '../../assets/five/m4.jpg';
 import ModalImg5 from '../../assets/five/m5.jpg';
 
-import ModalImg1E from '../../assets/m1e.png';
-import ModalImg2E from '../../assets/m2e.png';
-import ModalImg3E from '../../assets/m3e.png';
-import ModalImg4E from '../../assets/m4e.png';
-import ModalImg5E from '../../assets/m5e.png';
+import ModalImg1E from '../../assets/five/me1.jpg';
+import ModalImg2E from '../../assets/five/me2.jpg';
+import ModalImg3E from '../../assets/five/me3.jpg';
+import ModalImg4E from '../../assets/five/me4.jpg';
+import ModalImg5E from '../../assets/five/me5.jpg';
 
-import ModalImg1F from '../../assets/m1f.png';
-import ModalImg2F from '../../assets/m2f.png';
-import ModalImg3F from '../../assets/m3f.png';
-import ModalImg4F from '../../assets/m4f.png';
-import ModalImg5F from '../../assets/m5f.png';
+import ModalImg1F from '../../assets/five/mf1.jpg';
+import ModalImg2F from '../../assets/five/mf2.jpg';
+import ModalImg3F from '../../assets/five/mf3.jpg';
+import ModalImg4F from '../../assets/five/mf4.jpg';
+import ModalImg5F from '../../assets/five/mf5.jpg';
 
 const currentImg = ref(ModalImg1);
 const router = useRouter();
