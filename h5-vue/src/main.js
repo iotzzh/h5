@@ -29,9 +29,10 @@ app.directive('horizontal-screen',{
                 el.style.webkitTransformOrigin = el.style.transformOrigin = `${width / 2}px center`;
                 //如果已经处于横屏状态就不做其他处理了
             }else if(window.orientation === 90 || window.orientation === -90){//横屏状态
-                el.style.webkitTransform = el.style.transform = `rotate(0)`;
-                el.style.width = `${width}px`;
-                el.style.height = `${height}px`;
+                // el.style.webkitTransform = el.style.transform = `rotate(0)`;
+                // el.style.width = `${width}px`;
+                // el.style.height = `${height}px`;
+                // alert('请保持竖屏浏览');
             }
         }
         reset(true);
