@@ -45,6 +45,7 @@
 <script setup>
 import { nextTick, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { startClickMusic } from '../utils'
 import { gsap } from "gsap";
 // Import Swiper Vue.js components
 import BgImg from '../assets/bg-img.jpg'
@@ -95,7 +96,7 @@ const modals = ref([
 setTimeout(function() {
      var scrollContainer = document.querySelector('.box');
      scrollContainer.classList.add('slide-down');
-}, 4000); // 4000毫秒即4秒
+}, 1000); // 4000毫秒即4秒
 
 const buttons = ref([]);
 
@@ -120,6 +121,7 @@ const loadImg = () => {
 const showModal = ref(false);
 const openModal = (index) => {
  router.push({ path: 'modal', params: { index }, query: { index, lan: 'ch' } });
+ startClickMusic();
  // showModal.value = true;
  //   document.body.style.overflow = 'hidden';
  //   const modalDom = document.querySelector('.modal');

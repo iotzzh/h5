@@ -5,8 +5,8 @@
         
         <div class="buttons" style="position: absolute; width: 100vh; left: 0; bottom: 30px; text-align: center; z-index: 1;">
             <img class="img" :src="rt[2]" style="margin: 0 20px;" @click="closeModal" />
-            <img class="img" :src="rt[1]" style="margin: 0 20px;" @click="last" />
-            <img class="img" :src="rt[0]" style="margin: 0 20px;" @click="next" />
+            <img class="img" :src="rt[0]" style="margin: 0 20px;" @click="last" />
+            <img class="img" :src="rt[1]" style="margin: 0 20px;" @click="next" />
         </div>
 
         <div style="overflow: auto;" class="image-box">
@@ -18,7 +18,7 @@
   
 <script setup>
 import { nextTick, onMounted, ref } from 'vue';
-import { gsap } from "gsap";
+import { startClickMusic } from '../utils';
 import { useRouter } from 'vue-router';
 // Import Swiper Vue.js components
 import BgImg from '../assets/bg-img.jpg'
@@ -150,10 +150,12 @@ const startButtonsAni = () => {
 
 const last = () => {
     if (currentModalIndex.value > 0) currentModalIndex.value--;
+    startClickMusic();
 }
 
 const next = () => {
-    if (currentModalIndex.value < modals.value.length) currentModalIndex.value++;
+    if (currentModalIndex.value < modals.value.length - 1) currentModalIndex.value++;
+    startClickMusic();
 }
 
 </script>

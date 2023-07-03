@@ -61,7 +61,7 @@ const clickIntoHomeF = () => {
 
 <style scoped>
 .box {
-  background: url(../../assets/home.png) no-repeat;
+  background: url(../../assets/five/home.png) no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%;

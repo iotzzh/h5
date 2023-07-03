@@ -46,6 +46,7 @@
 <script setup>
 import { nextTick, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { startClickMusic } from '../utils'
 import { gsap } from "gsap";
 // Import Swiper Vue.js components
 import BgImgF from '../assets/bg-imgf.jpg'
@@ -113,6 +114,7 @@ const loadImg = () => {
 const showModal = ref(false);
 const openModal = (index) => {
   router.push({ path: 'modal', params: { index }, query: { index, lan: 'fr' } });
+  startClickMusic();
   // showModal.value = true;
   //   document.body.style.overflow = 'hidden';
   //   const modalDom = document.querySelector('.modal');
@@ -164,7 +166,7 @@ const startScroll = () => {
 onMounted(() => {
   setTimeout(() => {
     startScroll();
-  }, 4000);
+  }, 1000);
 });
 
 function stopScroll() {

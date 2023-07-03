@@ -27,8 +27,8 @@
         <div class="buttons"
           style="text-align: center; position: absolute; width: 100vh; left: 0px; bottom: 30px; overflow: hidden;">
           <img class="img" :src="MHome" style="margin: 0 20px;" @click="closeModal" />
-          <img class="img" :src="ML" style="margin: 0 20px;" @click="last" />
-          <img class="img" :src="MN" style="margin: 0 20px;" @click="next" />
+          <img class="img" :src="MN" style="margin: 0 20px;" @click="last" />
+          <img class="img" :src="ML" style="margin: 0 20px;" @click="next" />
         </div>
 
         <div style="width: 100vh; height: 100vw; overflow: auto;">
@@ -44,6 +44,7 @@
 <script setup>
 import { nextTick, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { startClickMusic } from '../../utils'
 import { gsap } from "gsap";
 // Import Swiper Vue.js components
 import BgImg from '../../assets/five/bg-img.jpg'
@@ -98,6 +99,7 @@ const loadImg = () => {
 const showModal = ref(false);
 const openModal = (index) => {
   router.push({ path: 'fivemodal', params: { index }, query: { index, lan: 'ch' } });
+  startClickMusic();
 };
 
 const clickStopMusic = () => {
@@ -144,7 +146,7 @@ const startScroll = () => {
 onMounted(() => {
   setTimeout(() => {
     startScroll();
-  }, 4000);
+  }, 1000);
 });
 
 function stopScroll() {

@@ -18,18 +18,19 @@
 <script setup>
 import { nextTick, onMounted, ref } from 'vue';
 import { gsap } from "gsap";
+import { startClickMusic } from '../../utils'
 import { useRouter } from 'vue-router';
 
-import ML from '../../assets/m-l.jpg'
-import MN from '../../assets/m-n.jpg'
+import ML from '../../assets/m-n.jpg'
+import MN from '../../assets/m-l.jpg'
 import MHome from '../../assets/m-home.jpg'
 
-import MLE from '../../assets/m-l-e.jpg'
-import MNE from '../../assets/m-n-e.jpg'
+import MLE from '../../assets/m-n-e.jpg'
+import MNE from '../../assets/m-l-e.jpg'
 import MHomeE from '../../assets/m-home-e.jpg'
 
-import MLF from '../../assets/m-l-f.jpg'
-import MNF from '../../assets/m-n-f.jpg'
+import MLF from '../../assets/m-n-f.jpg'
+import MNF from '../../assets/m-l-f.jpg'
 import MHomeF from '../../assets/m-home-f.jpg'
 
 
@@ -78,10 +79,12 @@ const closeModal = () => {
 
 const last = () => {
     if (currentModalIndex.value > 0) currentModalIndex.value--;
+    startClickMusic();
 }
 
 const next = () => {
     if (currentModalIndex.value < modals.value.length - 1) currentModalIndex.value++;
+    startClickMusic();
 }
 
 </script>
