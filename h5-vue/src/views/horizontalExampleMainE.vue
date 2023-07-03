@@ -174,6 +174,28 @@ function stopScroll() {
 document.body.addEventListener("touchstart", (e) => {
   stopScroll();
 });
+
+const touchTimeout = ref();
+
+  function doSomething() {
+      // 执行你想要的操作
+      console.log("1秒已过，执行操作");
+      startScroll();
+    }
+
+    function startTimer() {
+      touchTimeout.value = setTimeout(doSomething, 1000); // 设置1秒的定时器
+    }
+
+    function clearTimer() {
+      clearTimeout(touchTimeout.value); // 清除定时器
+    }
+
+
+
+    window.addEventListener('touchstart', clearTimer); // 监听触摸开始事件
+    window.addEventListener('touchend', startTimer); // 监听触摸结束事件
+    
 </script>
 
 
