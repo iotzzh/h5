@@ -47,7 +47,7 @@ import { startClickMusic } from '../utils'
 import { gsap } from "gsap";
 // Import Swiper Vue.js components
 import BgImg from '../assets/bg-img.jpg'
-import BgImgE from '../assets/bg-imge.jpg'
+import BgImgE from '../assets/bg-imge.png'
 import BgImgBaseE from '../assets/base_rune.gif'
 import IconMusic from '../assets/iconmusic.png';
 import Icon1 from '../assets/icon1e.gif';
