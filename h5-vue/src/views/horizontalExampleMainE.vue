@@ -4,8 +4,8 @@
   <section v-horizontal-screen style="position: relative;" class="box">
     <img @load="loadImg" class="bg" :src="BgImgE"
       style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
-    <img @load="loadImg" class="bg" :src="BgImgBaseE"
-      style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" />
+    <!-- <img @load="loadImg" class="bg" :src="BgImgBaseE"
+      style="position: absolute; left: 0; top: 0; height: 100%; width: auto;" /> -->
     <div class="button"  style="position: absolute; top: 9.7%;left: 11.4%; width: 5%; height: 10%; overflow: hidden; position: absolute;" @click="clickStopMusic">
       <img :src="IconMusic" />  
     </div>
@@ -48,7 +48,7 @@ import { gsap } from "gsap";
 // Import Swiper Vue.js components
 import BgImg from '../assets/bg-img.jpg'
 import BgImgE from '../assets/bg-imge.png'
-import BgImgBaseE from '../assets/base_rune.gif'
+//import BgImgBaseE from '../assets/base_rune.gif'
 import IconMusic from '../assets/iconmusic.png';
 import Icon1 from '../assets/icon1e.gif';
 import Icon2 from '../assets/icon2e.gif';

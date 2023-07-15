@@ -7,9 +7,9 @@
     <div class="button"  style="position: absolute; top: 11vw;left: 20vw; width: 50px; height: 50px; overflow: hidden; position: absolute;" @click="clickStopMusic">
       <img :src="IconMusic" />  
     </div>
-    <div class="button"  style="position: absolute; top: 9.7%;left: 11.4%; width: 5%; height: 10%; overflow: hidden; position: absolute;" @click="clickStopMusic">
+    <!-- <div class="button"  style="position: absolute; top: 9.7%;left: 11.4%; width: 5%; height: 10%; overflow: hidden; position: absolute;" @click="clickStopMusic">
       <img :src="IconMusic" />  
-    </div>
+    </div> -->
     <div class="button"  style="position: absolute; top: 90%;left: 20%; overflow: hidden; position: absolute;" @click="clickStopMusic">
       <img :src="Run" />  
     </div>
